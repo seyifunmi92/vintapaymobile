@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class exceptionClass {
+class ExceptionClass {
   static const int timeout = 45;
 
   static const int timerDurationMinutes = 5;
