@@ -7,7 +7,7 @@ import '../../../core/constants/imageconstants.dart';
 // ignore: must_be_immutable
 class ImageLoader extends StatelessWidget {
   ///to display a network image
- final  String? imageUrl;
+  final String? imageUrl;
 
   /// to display image from local
   final String? imagePath;

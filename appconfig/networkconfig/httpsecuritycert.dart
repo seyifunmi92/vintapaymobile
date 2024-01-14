@@ -1,5 +1,4 @@
 import 'dart:io';
-//http override certificate
 
 class MyHttpOverrides extends HttpOverrides {
   @override

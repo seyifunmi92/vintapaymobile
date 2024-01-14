@@ -44,6 +44,7 @@ dependencies:
   page_transition: ^2.1.0
   carousel_slider: ^4.2.1
   intl: ^0.19.0
+  flutter_svg: ^2.0.9
 
 dev_dependencies:
   flutter_test:
@@ -69,7 +70,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-  - assets/image/pngassets/
+  - assets/image/png/
   - assets/image/svg/
   - assets/image/jpeg/
   
