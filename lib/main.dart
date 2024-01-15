@@ -1,7 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:vintapay/core/appTheme/themehelper.dart';
+import 'package:vintapay/providers/onboardingprovider.dart';
 import 'package:vintapay/view/presentation/splashscreens/splashScreen1.dart';
 // ignore_for_file: library_private_types_in_public_api
 
@@ -31,13 +33,19 @@ class _VintapayLaunchState extends State<VintapayLaunch> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      navigatorKey: _VintapayLaunchState.navKey,
-      themeMode: appCurrentTheme,
-      darkTheme: AppTheme.darkMode,
-      theme: AppTheme.lightMode,
-      home: const SplashScreenInitial(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<OnboardingProvider>(
+            create: (context) => OnboardingProvider())
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        navigatorKey: _VintapayLaunchState.navKey,
+        themeMode: appCurrentTheme,
+        darkTheme: AppTheme.darkMode,
+        theme: AppTheme.lightMode,
+        home: const SplashScreenInitial(),
+      ),
     );
   }
 

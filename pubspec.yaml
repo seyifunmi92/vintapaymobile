@@ -45,10 +45,16 @@ dependencies:
   carousel_slider: ^4.2.1
   intl: ^0.19.0
   flutter_svg: ^2.0.9
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  image_path: "assets/image/png/vintapaylogowhite.PNG"
+  android: true
+  ios: true
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

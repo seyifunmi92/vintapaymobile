@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../../utils/switchcase/switch.dart';
-import 'package:vintapay/core/layoutbuilder/responsiveness.dart';
-import 'package:vintapay/view/widgets/imageloader/imageloader.dart';
+import 'package:vintapay/providers/onboardingprovider.dart';
+import 'package:vintapay/view/widgets/animatedwidgets/flipimage.dart';
 
 class SplashScreenInitial extends StatefulWidget {
   const SplashScreenInitial({super.key});
@@ -10,17 +11,23 @@ class SplashScreenInitial extends StatefulWidget {
   State<SplashScreenInitial> createState() => _SplashScreenInitialState();
 }
 
-class _SplashScreenInitialState extends State<SplashScreenInitial> {
+class _SplashScreenInitialState extends State<SplashScreenInitial>
+    with SingleTickerProviderStateMixin {
+  @override
+  void initState() {
+    context.read<OnboardingProvider>().initializeAnimation(x: this);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     var currentTheme = MediaQuery.of(context).platformBrightness.name;
     return Scaffold(
       body: Center(
-        child: ImageLoader(
-          imagePath: getImageByTheme(currentTheme),
-          imageHeight: 100.adaptSize,
-        ),
-      ),
+          child: Consumer<OnboardingProvider>(builder: (context, x, child) {
+        return AnimateImageFlip(
+            image: getImageByTheme(currentTheme), isHorizontalFlip: false);
+      })),
     );
   }
 }
